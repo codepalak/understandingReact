@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Rendering</title>
+</head>
+<body>
+  <div id="root"> Hello from dom</div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    let root=document.getElementById("root");
+    let reactRoot=ReactDOM.createRoot(root);
+
+    function Gallery({children}){
+      return(
+        <>
+        <div className="gallery-grid">{children}</div>
+        
+      </>
+
+      );
+      
+    }
+    function Image({src}) {
+  return (
+    <img src={src} alt="Gallery Image"/>
+  );
+}
+
+    function App(){
+      return (
+        <>
+        <Gallery>
+          <Image src="https://tse1.mm.bing.net/th?id=OIP.BXsxvnDMc7nQyCkgX5DgLwHaEK&pid=Api&rs=1&c=1&qlt=95&h=180" />
+          <Image src="https://tse4.mm.bing.net/th?id=OIP.m4FmOjk0Bx-N4JaBzsBoTgHaEP&pid=Api&P=0&h=180" />
+         </Gallery>
+        </>
+      )
+    }
+    reactRoot.render(<App/>);
+    
+  </script>
+</body>
+</html>  children props
